@@ -11,7 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class common extends tickertape_stockfunctionality_test {
+public class common{
 	public static WebDriver driver;
 	public static void click(String xpath) {
 		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
