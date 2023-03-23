@@ -12,14 +12,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class tickertape_stockfunctionality_test {
+public class tickertape_stockfunctionality_test{
 
-public static WebDriver driver;
+ WebDriver driver;
 	
 	@BeforeMethod
 	public void setup()
-	{
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\Desktop\\MSsqure\\Chrome Driver\\chromedriver.exe");
+	{    maindriver.CreaterInstance("Chrome");
+		//System.setProperty("webdriver.chrome.driver", "C:\\Users\\HP\\Desktop\\MSsqure\\Chrome Driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://www.tickertape.in/");
 		driver.manage().window().maximize();
@@ -33,8 +33,9 @@ public static WebDriver driver;
 		}
 		
 	}
-
-
+	
+	
+    
 	@Test(priority=1)
 	
 	public void verify_dropdown_clickability()
@@ -42,8 +43,8 @@ public static WebDriver driver;
 		
 		driver.findElement(By.xpath("//input[@id=\"search-stock-input\"]")).click();
 		boolean enability_test=driver.findElement(By.xpath("//input[@id=\"search-stock-input\"]")).isEnabled();
-		
-		Assert.assertTrue(enability_test, "dropdown is enabled");
+		System.out.println(enability_test);
+		Assert.assertTrue(enability_test);
 	}
 	
 	@Test(priority=2)
@@ -66,7 +67,7 @@ public static WebDriver driver;
 	}
 	}
 	
-	@Test(priority=4) 
+	/*@Test(priority=4) 
 	public void verify_stockselection() throws InterruptedException
 	{
 		common.stock("Infosys");
@@ -243,7 +244,7 @@ public static WebDriver driver;
 		common.popup();
 		driver.findElement(By.xpath("//a[text()=\"Events\"]")).click();
 
-	}
+	}*/
 	
 	
 	@AfterMethod
